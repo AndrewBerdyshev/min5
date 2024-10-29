@@ -1,5 +1,6 @@
 from typing import Callable
 import math
+import pytest
 
 def cos(x):
     return math.cos(x)
@@ -16,6 +17,7 @@ def runTests():
     assert specialize(f, y=1)(2) == 3
     assert specialize(f, x=1, y=1)() == 2
     assert specialize(cos, x=math.pi)() == -1.0
-    assert specialize(f, z=1)()
+    with pytest.raises(TypeError):
+        assert specialize(f, z=1)()
 
 runTests()
