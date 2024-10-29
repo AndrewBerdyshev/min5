@@ -16,5 +16,6 @@ def runTests():
     assert specialize(f, y=1)(2) == 3
     assert specialize(f, x=1, y=1)() == 2
     assert specialize(cos, x=math.pi)() == -1.0
+    assert specialize(f, z=1)()
 
 runTests()
